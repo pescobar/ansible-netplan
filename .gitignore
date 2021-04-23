@@ -1,13 +1,30 @@
-# Ansible related
-*.retry
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
 
-# Junk files
-*.swp
-*.DS_Store
-[Tt]humbs.db
+# IDE files #
+#################
+/.settings
+/.buildpath
+/.project
+/nbproject
+*.komodoproject
+*.kpf
+/.idea
 
-# Generated templates
-generated/
-build/**
+# Vagrant files #
+.virtualbox/
+.vagrant/
+vagrant_ansible_inventory_*
+ansible.cfg
 
-.vagrant
+# Other files #
+###############
+!empty
