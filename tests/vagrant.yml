@@ -4,7 +4,11 @@
   remote_user: vagrant
   become: true
   roles:
-    - ../../
+    - role: ../../
+      when: >
+        false
+        or (ansible_distribution == 'Debian' and ansible_distribution_major_version is version('9', '>='))
+        or (ansible_distribution == 'Ubuntu' and ansible_distribution_major_version is version('18', '>='))
   vars:
     netplan_conf_file: 01-netcfg.yaml
     netplan_conf: |
