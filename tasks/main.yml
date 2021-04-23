@@ -1,11 +1,13 @@
+# tasks file
 ---
 - import_tasks: install.yml
-  when: netplan_enabled
-
-- import_tasks: wipe.yml
-  when:
-    - netplan_enabled
-    - netplan_wipe
+  tags:
+    - configuration
+    - netplan
+    - netplan-install
 
 - import_tasks: configure.yml
-  when: netplan_enabled
+  tags:
+    - configuration
+    - netplan
+    - netplan-configure

@@ -1,11 +1,12 @@
+# handlers file
 ---
-- name: Apply netplan config
-  become: true
-  command: netplan apply
+- name: apply netplan config
+  command: >
+    netplan apply
   listen: netplan apply config
 
-- name: Generate netplan config
-  become: true
-  command: netplan generate
+- name: generate netplan config
+  command: >
+    netplan generate
   listen: netplan generate config
   notify: netplan apply config
