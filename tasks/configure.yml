@@ -25,6 +25,7 @@
   template:
     src: etc/netplan/config.yaml.j2
     dest: "{{ netplan_conf_path }}/{{ netplan_conf_file }}"
+    mode: 0644
   when: netplan_conf | length
   notify: netplan generate config
   tags:
