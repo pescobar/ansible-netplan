@@ -19,7 +19,7 @@
 
   when: netplan_conf_purge | bool
   tags:
-    - netplan-configure-wipe
+    - netplan-configure-purge
 
 - name: configure | update
   template:
