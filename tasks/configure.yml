@@ -1,15 +1,18 @@
 # tasks file
 ---
-- block:
-
+- name: configure
+  when: netplan_conf_purge | bool
+  tags:
+    - netplan-configure-purge
+  block:
     - name: configure | find existing
-      find:
+      ansible.builtin.find:
         paths: "{{ netplan_conf_path }}"
         patterns: '*.yaml,*.yml'
       register: _netplan_existing_files
 
     - name: configure | remove existing
-      file:
+      ansible.builtin.file:
         path: "{{ item['path'] }}"
         state: absent
       with_items: "{{ _netplan_existing_files['files'] }}"
@@ -17,12 +20,8 @@
         - item['path'] != netplan_conf_path + '/' + netplan_conf_file
       notify: netplan generate config
 
-  when: netplan_conf_purge | bool
-  tags:
-    - netplan-configure-purge
-
 - name: configure | update
-  template:
+  ansible.builtin.template:
     src: etc/netplan/config.yaml.j2
     dest: "{{ netplan_conf_path }}/{{ netplan_conf_file }}"
     mode: 0644
