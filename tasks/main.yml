@@ -8,7 +8,7 @@
     - netplan-install
 
 - name: configure
-- ansible.builtin.import_tasks: configure.yml
+  ansible.builtin.import_tasks: configure.yml
   tags:
     - configuration
     - netplan
