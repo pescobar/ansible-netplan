@@ -1,12 +1,12 @@
 # handlers file
 ---
-- name: apply netplan config
-  command: >
+- name: apply netplan config  # noqa no-changed-when
+  ansible.builtin.command: >
     netplan apply
   listen: netplan apply config
 
-- name: generate netplan config
-  command: >
+- name: generate netplan config  # noqa no-changed-when
+  ansible.builtin.command: >
     netplan generate
   listen: netplan generate config
   notify: netplan apply config
