@@ -18,7 +18,6 @@
       with_items: "{{ _netplan_existing_files['files'] }}"
       when:
         - item['path'] != netplan_conf_path + '/' + netplan_conf_file
-      notify: netplan generate config
 
 - name: configure | update
   ansible.builtin.template:
@@ -26,6 +25,8 @@
     dest: "{{ netplan_conf_path }}/{{ netplan_conf_file }}"
     mode: 0644
   when: netplan_conf | length
-  notify: netplan generate config
+  notify:
+    - generate netplan config
+    - apply netplan config
   tags:
     - netplan-configure-update
