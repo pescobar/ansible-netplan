@@ -3,15 +3,15 @@
 - name: install | dependencies
   ansible.builtin.apt:
     name: "{{ netplan_dependencies }}"
-    state: "{{ apt_install_state | default('latest') }}"
+    state: "{{ netplan_pkgs_install_state | default('present') }}"
     update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+    cache_valid_time: "{{ netplan_apt_update_cache_valid_time | default(0) }}"
   tags:
     - netplan-install-dependencies
 
 - name: install | additional
   ansible.builtin.apt:
     name: "{{ netplan_install }}"
-    state: "{{ apt_install_state | default('latest') }}"
+    state: "{{ netplan_pkgs_install_state | default('present') }}"
   tags:
     - netplan-install-additional
