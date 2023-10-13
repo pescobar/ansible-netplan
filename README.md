@@ -13,6 +13,8 @@ Set up netplan in Debian-like systems.
 #### Variables
 
 * `netplan_install` [default: `[]`]: Additional packages to install
+* `netplan_pkgs_install_state` [default: `present`]: State of the netplan packages regarding the apt module `absent | build-dep | latest | present | fixed`
+* `netplan_apt_update_cache_valid_time` [default: `0`]: Adjust the apt cache expiration time as per the apt module, default is `0` no expiration
 
 * `netplan_version` [default: `2`]: Version
 * `netplan_renderer` [default: `networkd`]: Renderer

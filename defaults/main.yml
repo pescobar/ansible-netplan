@@ -1,6 +1,8 @@
 # defaults file
 ---
 netplan_install: []
+netplan_pkgs_install_state: "present"
+netplan_apt_update_cache_valid_time: "0"
 
 netplan_version: 2
 netplan_renderer: networkd
