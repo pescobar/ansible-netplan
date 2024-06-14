@@ -2,6 +2,7 @@
 ---
 - name: install
   ansible.builtin.import_tasks: install.yml
+  when: netplan_install_packages
   tags:
     - configuration
     - netplan

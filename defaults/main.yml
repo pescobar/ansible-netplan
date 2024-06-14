@@ -1,5 +1,6 @@
 # defaults file
 ---
+netplan_install_packages: false
 netplan_install: []
 netplan_pkgs_install_state: "present"
 netplan_apt_update_cache_valid_time: "0"
