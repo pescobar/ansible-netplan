@@ -24,6 +24,7 @@
     src: etc/netplan/config.yaml.j2
     dest: "{{ netplan_conf_path }}/{{ netplan_conf_file }}"
     mode: 0644
+    backup: yes
   when: netplan_conf | length
   notify:
     - generate netplan config
